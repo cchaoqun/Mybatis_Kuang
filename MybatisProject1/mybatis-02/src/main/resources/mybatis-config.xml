@@ -12,10 +12,10 @@
 
     <!--可以给实体类起别名-->
 <!--    <typeAliases>-->
-<!--        <typeAlias type="com.com.kuang.pojo.User" alias="User"/>-->
+<!--        <typeAlias type="com.kuang.pojo.User" alias="User"/>-->
 <!--    </typeAliases>-->
     <typeAliases>
-        <package name="com.com.kuang.pojo"/>
+        <package name="com.kuang.pojo"/>
     </typeAliases>
 
     <environments default="development">
@@ -31,13 +31,13 @@
     </environments>
     <!--每一个Mapper.xml都需要在Mybatis核心配置文件中注册!-->
     <mappers>
-        <mapper resource="com/com.kuang/dao/UserMapper.xml"/>
+        <mapper resource="com/kuang/dao/UserMapper.xml"/>
     </mappers>
 <!--    <mappers>-->
-<!--        <mapper class="com.com.kuang.dao.UserMapper"/>-->
+<!--        <mapper class="com.kuang.dao.UserMapper"/>-->
 <!--    </mappers>-->
 
 <!--    <mappers>-->
-<!--        <package name="com.com.kuang.dao"/>-->
+<!--        <package name="com.kuang.dao"/>-->
 <!--    </mappers>-->
 </configuration>

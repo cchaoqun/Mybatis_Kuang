@@ -16,7 +16,7 @@
     </settings>
 
     <typeAliases>
-        <package name="com.kuang.pojo"/>
+        <package name="com.com.kuang.pojo"/>
     </typeAliases>
 
     <environments default="development">
@@ -33,7 +33,7 @@
 
     <!--绑定接口-->
     <mappers>
-        <mapper class="com.kuang.dao.UserMapper"/>
+        <mapper class="com.com.kuang.dao.UserMapper"/>
     </mappers>
 
 </configuration>

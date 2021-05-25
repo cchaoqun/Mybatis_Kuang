@@ -15,7 +15,7 @@
 
 
     <select id="getUserById" parameterType="int" resultMap="UserMap">
-        select * from mybatis.user where id = #{id}
+        select * from mybatis.user where id = #{cid}
     </select>
 
     <!--分页-->

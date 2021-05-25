@@ -117,6 +117,12 @@ INSERT INTO `user` (`id`, `name`, `pwd`) VALUES
 3. 导入maven依赖
 
    ```xml
+   <properties>
+       <java.version>1.8</java.version>
+       <maven.compiler.source>1.8</maven.compiler.source>
+       <maven.compiler.target>1.8</maven.compiler.target>
+       <encoding>UTF-8</encoding>
+   </properties>
    <!--导入依赖-->
        <dependencies>
            <!--Mysql驱动-->
@@ -140,7 +146,7 @@ INSERT INTO `user` (`id`, `name`, `pwd`) VALUES
    
        </dependencies>
    ```
-
+   
    
 
 ### 创建一个模块

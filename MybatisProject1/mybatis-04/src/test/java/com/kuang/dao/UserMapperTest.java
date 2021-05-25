@@ -27,7 +27,7 @@ public class UserMapperTest {
         RowBounds rowBounds = new RowBounds(1, 2);
 
         //通过java代码层面实现分页
-        List<User> userList = sqlSession.selectList("com.com.kuang.dao.UserMapper.getUserByRowBounds", null, rowBounds);
+        List<User> userList = sqlSession.selectList("com.kuang.dao.UserMapper.getUserByRowBounds", null, rowBounds);
         for(User user:userList){
             System.out.println(user);
         }

@@ -3,34 +3,34 @@
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <!--namespace=绑定一个对应的Dao/Mapper接口-->
-<mapper namespace="com.com.kuang.dao.UserMapper">
+<mapper namespace="com.kuang.dao.UserMapper">
 
     <!--
     select * from mybatis.user where id = ?
     select * from mybatis.user where id = 1 or 1=1
     select * from mybatis.user where name like "%"#{value}"%";
     -->
-    <select id="getUserLike" resultType="com.com.kuang.pojo.User">
+    <select id="getUserLike" resultType="com.kuang.pojo.User">
         select * from mybatis.user where name like #{value};
     </select>
 
 
     <!--select查询语句-->
-    <select id="getUserList" resultType="com.com.kuang.pojo.User">
+    <select id="getUserList" resultType="com.kuang.pojo.User">
         select * from mybatis.user;
     </select>
 
-    <select id="getUserById" parameterType="int" resultType="com.com.kuang.pojo.User">
+    <select id="getUserById" parameterType="int" resultType="com.kuang.pojo.User">
         select * from mybatis.user where id = #{id};
     </select>
 
-    <select id="getUserById2" parameterType="map" resultType="com.com.kuang.pojo.User">
+    <select id="getUserById2" parameterType="map" resultType="com.kuang.pojo.User">
         select * from mybatis.user where `id` = #{helloId} and `name`= #{helloName};
     </select>
 
     <!--插入-->
     <!--对象中的属性可以直接取出-->
-    <insert id="addUser" parameterType="com.com.kuang.pojo.User">
+    <insert id="addUser" parameterType="com.kuang.pojo.User">
         insert into mybatis.user(id,name,pwd) values (#{id}, #{name}, #{pwd});
     </insert>
 
@@ -42,7 +42,7 @@
     </insert>
 
     <!--更新-->
-    <update id="updateUser" parameterType="com.com.kuang.pojo.User">
+    <update id="updateUser" parameterType="com.kuang.pojo.User">
         update mybatis.user set `name`=#{name}, `pwd`=#{pwd} where `id`=#{id};
     </update>
 
