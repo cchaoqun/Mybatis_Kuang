@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.kuang.dao.BlogMapper">
+
+    <!--添加-->
+    <insert id="addBlog" parameterType="blog">
+        insert into mybatis.blog(id,title,author, create_time,views)
+        values(#{id},#{title},#{author},#{createTime},#{views});
+    </insert>
+
+    <!--sql片段-->
+    <sql id="if-title-author">
+        <if test="title != null">
+            title = #{title}
+        </if>
+        <if test="author != null">
+            and author = #{author}
+        </if>
+    </sql>
+
+
+    <!--IF 查询-->
+    <select id="queryBlogIF" parameterType="map" resultType="blog">
+        select * from blog
+        <where>
+            <include refid="if-title-author"/>
+        </where>
+    </select>
+
+
+    <select id="queryBlogForeach" parameterType="map" resultType="blog">
+        select * from blog
+        <where>
+            <foreach collection="ids" item="id" open="and (" separator="or" close=")">
+                id = #{id}
+            </foreach>
+
+
+        </where>
+    </select>
+
+    <!--Choose查询-->
+    <select id="queryBlogChoose" parameterType="map" resultType="blog">
+        select * from blog
+        <where>
+            <choose>
+                <when test="title!=null">
+                    title = #{title}
+                </when>
+                <when test="author!=null">
+                    author = #{author}
+                </when>
+                <otherwise>
+                    views = #{views}
+                </otherwise>
+            </choose>
+        </where>
+    </select>
+
+    <!--Set更新-->
+    <update id="updateBlog" parameterType="map" >
+        update blog
+        <set>
+            <if test="title != null">
+                title = #{title},
+            </if>
+            <if test="author != null">
+                author = #{author}
+            </if>
+        </set>
+        where id = #{id};
+    </update>
+</mapper>
